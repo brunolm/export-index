@@ -20,7 +20,7 @@ export function activate(context: vscode.ExtensionContext) {
         const currentFileDir = path.dirname(vscode.window.activeTextEditor.document.uri.fsPath);
         const files = fs.readdirSync(currentFileDir).filter(file => !/^index[.]\w+$/i.test(file));
 
-        const text = files.map(file => `export ${file.replace(/[.].+$/, '').replace(/-./, m => m[1].toUpperCase())} from './${file}';`).join('\n');
+        const text = files.sort().map(file => `export ${file.replace(/[.].+$/, '').replace(/-./g, m => m[1].toUpperCase())} from './${file}';`).join('\n');
 
         vscode.window.activeTextEditor.edit((b) => b.insert(new vscode.Position(0, 0), text));
     });
