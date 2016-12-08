@@ -2,7 +2,7 @@
   "name": "export-index",
   "displayName": "export-index",
   "description": "Export all files from folder in an index file",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "BrunoLM",
   "engines": {
     "vscode": "^1.5.0"
